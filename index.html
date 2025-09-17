@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер цветовых моделей: RGB, XYZ, CMYK</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-palette"></i> Конвертер цветовых моделей</h1>
+            <p class="subtitle">RGB ↔ XYZ ↔ CMYK</p>
+            <p>Изучайте и конвертируйте цвета между различными цветовыми моделями</p>
+        </header>
+        
+        <div class="color-display-container">
+            <div class="color-display" id="colorDisplay">
+                <div class="color-values">
+                    <div class="hex-value" id="hexValue">#4A6FA5</div>
+                    <div>Текущий цвет</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="color-picker-container">
+            <h3 class="color-picker-title"><i class="fas fa-eye-dropper"></i> Выбор цвета из палитры</h3>
+            <input type="color" id="colorPicker" value="#4a6fa5">
+        </div>
+        
+        <div class="models-container">
+            <div class="model-card">
+                <h3 class="model-title"><i class="fas fa-redo"></i> RGB модель</h3>
+                <p class="model-description">RGB (Red, Green, Blue) — аддитивная цветовая модель, используемая в цифровых дисплеях. Каждый цвет представлен комбинацией красного, зеленого и синего.</p>
+                <div class="color-input">
+                    <label for="rSlider">R (Красный):</label>
+                    <div class="input-group">
+                        <input type="range" id="rSlider" min="0" max="255" value="74">
+                        <input type="number" id="rInput" min="0" max="255" value="74">
+                    </div>
+                    <div class="warning" id="rWarning"><i class="fas fa-exclamation-triangle"></i> Значение обрезано до допустимого диапазона</div>
+                </div>
+                <div class="color-input">
+                    <label for="gSlider">G (Зеленый):</label>
+                    <div class="input-group">
+                        <input type="range" id="gSlider" min="0" max="255" value="111">
+                        <input type="number" id="gInput" min="0" max="255" value="111">
+                    </div>
+                    <div class="warning" id="gWarning"><i class="fas fa-exclamation-triangle"></i> Значение обрезано до допустимого диапазона</div>
+                </div>
+                <div class="color-input">
+                    <label for="bSlider">B (Синий):</label>
+                    <div class="input-group">
+                        <input type="range" id="bSlider" min="0" max="255" value="165">
+                        <input type="number" id="bInput" min="0" max="255" value="165">
+                    </div>
+                    <div class="warning" id="bWarning"><i class="fas fa-exclamation-triangle"></i> Значение обрезано до допустимого диапазона</div>
+                </div>
+            </div>
+            
+            <div class="model-card">
+                <h3 class="model-title"><i class="fas fa-sync-alt"></i> XYZ модель</h3>
+                <p class="model-description">XYZ — модель, основанная на реальных измерениях человеческого восприятия цвета. Разработана Международной комиссией по освещению (CIE).</p>
+                <div class="color-input">
+                    <label for="xInput">X:</label>
+                    <input type="number" id="xInput" min="0" max="95.05" step="0.01" value="20.52">
+                    <div class="warning" id="xWarning"><i class="fas fa-exclamation-triangle"></i> Значение обрезано до допустимого диапазона</div>
+                </div>
+                <div class="color-input">
+                    <label for="yInput">Y:</label>
+                    <input type="number" id="yInput" min="0" max="100" step="0.01" value="19.25">
+                    <div class="warning" id="yWarning"><i class="fas fa-exclamation-triangle"></i> Значение обрезано до допустимого диапазона</div>
+                </div>
+                <div class="color-input">
+                    <label for="zInput">Z:</label>
+                    <input type="number" id="zInput" min="0" max="108.9" step="0.01" value="56.82">
+                    <div class="warning" id="zWarning"><i class="fas fa-exclamation-triangle"></i> Значение обрезано до допустимого диапазона</div>
+                </div>
+            </div>
+            
+            <div class="model-card">
+                <h3 class="model-title"><i class="fas fa-exchange-alt"></i> CMYK модель</h3>
+                <p class="model-description">CMYK (Cyan, Magenta, Yellow, Key/Black) — субтрактивная цветовая модель, используемая в полиграфии. Каждый цвет представлен комбинацией голубого, пурпурного, желтого и черного.</p>
+                <div class="color-input">
+                    <label for="cInput">C (Голубой):</label>
+                    <div class="input-group">
+                        <input type="range" id="cSlider" min="0" max="100" value="55">
+                        <input type="number" id="cInput" min="0" max="100" value="55">
+                    </div>
+                    <div class="warning" id="cWarning"><i class="fas fa-exclamation-triangle"></i> Значение обрезано до допустимого диапазона</div>
+                </div>
+                <div class="color-input">
+                    <label for="mInput">M (Пурпурный):</label>
+                    <div class="input-group">
+                        <input type="range" id="mSlider" min="0" max="100" value="33">
+                        <input type="number" id="mInput" min="0" max="100" value="33">
+                    </div>
+                    <div class="warning" id="mWarning"><i class="fas fa-exclamation-triangle"></i> Значение обрезано до допустимого диапазона</div>
+                </div>
+                <div class="color-input">
+                    <label for="yInputCmyk">Y (Желтый):</label>
+                    <div class="input-group">
+                        <input type="range" id="ySliderCmyk" min="0" max="100" value="0">
+                        <input type="number" id="yInputCmyk" min="0" max="100" value="0">
+                    </div>
+                    <div class="warning" id="yCmykWarning"><i class="fas fa-exclamation-triangle"></i> Значение обрезано до допустимого диапазона</div>
+                </div>
+                <div class="color-input">
+                    <label for="kInput">K (Черный):</label>
+                    <div class="input-group">
+                        <input type="range" id="kSlider" min="0" max="100" value="35">
+                        <input type="number" id="kInput" min="0" max="100" value="35">
+                    </div>
+                    <div class="warning" id="kWarning"><i class="fas fa-exclamation-triangle"></i> Значение обрезано до допустимого диапазона</div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p><i class="fas fa-info-circle"></i> Цветовые модели: RGB, XYZ, CMYK. Конвертер цветов.</p>
+            <p>Изучайте преобразования между моделями в реальном времени</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
